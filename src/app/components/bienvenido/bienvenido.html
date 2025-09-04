@@ -1,0 +1,11 @@
+<br>
+<input type="number" value="0" [(ngModel)]="this.edadUno">
+<input type="number" value="0" [(ngModel)]="this.edadDos">
+<button (click)="this.calcula()">Calcular</button>
+<h3>
+    Suma de edades: {{ this.sumaEdades }}
+</h3>
+<h3>
+    Promedio de edades: {{ this.promedioEdades }}
+</h3>
+<button (click)="this.limpiaInputs()">Limpiar</button>
