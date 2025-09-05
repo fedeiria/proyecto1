@@ -3,21 +3,21 @@
         <div class="mb-3">
             <label for="exampleInputName" class="form-label">Nombre</label>
             <input type="text" class="form-control" id="exampleInputName" aria-describedby="nameHelp"
-                [(ngModel)]="this.nuevoUsuario.nombre" name="name">
+                [(ngModel)]="this.newUser.name" name="name">
         </div>
         <div class="mb-3">
             <label for="exampleInputSurname" class="form-label">Apellido</label>
             <input type="text" class="form-control" id="exampleInputSurname" aria-describedby="surnameHelp"
-                [(ngModel)]="this.nuevoUsuario.apellido" name="surname">
+                [(ngModel)]="this.newUser.surname" name="surname">
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail" class="form-label">Correo electronico</label>
             <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp"
-                [(ngModel)]="this.nuevoUsuario.email" name="email">
+                [(ngModel)]="this.newUser.email" name="email">
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword" class="form-label">Contrasena</label>
-            <input type="password" class="form-control" id="exampleInputPassword" [(ngModel)]="this.nuevoUsuario.clave"
+            <input type="password" class="form-control" id="exampleInputPassword" [(ngModel)]="this.newUser.password"
                 name="password">
         </div>
         <button type="submit" class="btn btn-primary">Registrarme</button>

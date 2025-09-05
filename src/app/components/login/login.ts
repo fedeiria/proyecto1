@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 
+import { LocalStorage } from '../../services/local-storage';
+
 @Component({
   selector: 'app-login',
   imports: [FormsModule, RouterLink],
@@ -10,15 +12,16 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class Login {
 
-  correo: string = '';
-  clave: string = '';
-  email: string = 'fede';
-  password:  string = '1234';
+  protected readonly email: string = '';
+  protected readonly password:  string = '';
 
-  constructor(private router: Router) {}
+  constructor(private localStorage: LocalStorage, private router: Router) { }
 
   getCredentials() {
-    if (this.correo == this.email && this.clave == this.password) {
+    const users = this.localStorage.getUserData();
+    const user = users.find(u => u.email === this.email && u.password === this.password);
+    
+    if (user) {
       this.router.navigate(['/welcome']);
     }
     else {

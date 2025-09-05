@@ -1,24 +1,26 @@
 import { Injectable } from '@angular/core';
 
+import { Iuser } from '../interfaces/iuser';
+
 @Injectable({
   providedIn: 'root'
 })
 export class LocalStorage {
-  userData: string = 'userData';
+  usersData: string = 'users';
 
   constructor() { }
 
   // SETTERS
-  setUserData(user: any): void {
-    localStorage.setItem(this.userData, JSON.stringify(user));
+  setUserData(user: Iuser[]): void {
+    localStorage.setItem(this.usersData, JSON.stringify(user));
   }
 
   // GETTERS
-  getUserData(): any {
-    return JSON.parse(localStorage.getItem(this.userData) || '{ }');
+  getUserData(): Iuser[] {
+    return JSON.parse(localStorage.getItem(this.usersData) || '[ ]');
   }
 
-    // borra el local storage
+  // borra el local storage
   clearData(): void {
     localStorage.clear();
   }

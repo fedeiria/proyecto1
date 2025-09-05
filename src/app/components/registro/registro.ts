@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
-import { Iusuario } from '../../interfaces/iusuario';
+import { Iuser } from '../../interfaces/iuser';
 import { LocalStorage } from '../../services/local-storage';
 
 @Component({
@@ -13,35 +13,39 @@ import { LocalStorage } from '../../services/local-storage';
 })
 export class Registro {
 
-  nuevoUsuario: Iusuario = {
-    nombre: '',
-    apellido: '',
+  users: Iuser[] = [];
+
+  newUser: Iuser = {
+    name: '',
+    surname: '',
     email: '',
-    clave: ''
+    password: ''
   }
 
   constructor(private localStorage: LocalStorage, private router: Router) { }
 
   // GETTERS
   get name(): string | null {
-    return this.nuevoUsuario.nombre;
+    return this.newUser.name;
   }
 
   get surname(): string | null {
-    return this.nuevoUsuario.apellido;
+    return this.newUser.surname;
   }
 
   get email(): string | null {
-    return this.nuevoUsuario.email;
+    return this.newUser.email;
   }
 
   get password(): string | null {
-    return this.nuevoUsuario.clave;
+    return this.newUser.password;
   }
 
   nuevoRegistro() {
     if (this.name && this.surname && this.email && this.password) {
-      this.localStorage.setUserData(this.nuevoUsuario);
+      this.users = this.localStorage.getUserData();
+      this.users.push(this.newUser);
+      this.localStorage.setUserData(this.users);
       this.router.navigate(['/welcome']);
     }
     else {
