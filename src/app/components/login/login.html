@@ -1,7 +1,18 @@
-<div>
-    <input type="text" placeholder="Tu nombre..." [(ngModel)]="this.nuevoUsuario.nombre">
-    <br>
-    <input type="text" placeholder="Tu clave..."[(ngModel)]="this.nuevoUsuario.clave">
-    <br>
-    <button (click)="this.getCredentials()">Ingresar</button>
+<div class="container">
+    <form>
+        <div class="mb-3">
+            <label for="exampleInputEmail" class="form-label">Correo electronico</label>
+            <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp"
+                [(ngModel)]="this.correo" name="email">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword" class="form-label">Contrasena</label>
+            <input type="password" class="form-control" id="exampleInputPassword" [(ngModel)]="this.clave"
+                name="password">
+        </div>
+        <div class="d-flex gap-2">
+            <button type="submit" class="btn btn-primary" (click)="this.getCredentials()">Ingresar</button>
+            <button type="button" class="btn btn-primary" routerLink="/registro">Registrarme</button>
+        </div>
+    </form>
 </div>
